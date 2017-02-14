@@ -6,6 +6,7 @@ WS-Federation sample using  ASP.NET using .NET Framework with OWIN
 
 ## Nuget Packages
 You will need to include the following Nuget packages:
+
  * Microsoft.Owin.Security.WsFederation
  * Microsoft.Owin.Security.Cookies
  * Microsoft.Owin.Host.SystemWeb (needed otherwise OwinStartup will not call Configuration method for the class specified)

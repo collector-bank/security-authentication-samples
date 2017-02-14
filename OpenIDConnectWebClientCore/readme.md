@@ -6,6 +6,7 @@ OpenID Connect Implict flow sample using ASP.NET Core using .NETCore 1.1.0 frame
 
 ## Nuget Packages
 You will need to include the following Nuget packages:
+
  * Microsoft.AspNetCore.Authentication.OpenIdConnect
  * Microsoft.AspNetCore.Authentication.Cookies
 ---
