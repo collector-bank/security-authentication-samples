@@ -3,14 +3,13 @@
 OpenID Connect Implict flow sample using ASP.NET Core using .NETCore 1.1.0 framework.
 
 ---
-
 ## Nuget Packages
 You will need to include the following Nuget packages:
 
  * Microsoft.AspNetCore.Authentication.OpenIdConnect
  * Microsoft.AspNetCore.Authentication.Cookies
----
 
+---
 ## Code needed
 You need to activate authentication in **Startup.cs** method **public void ConfigureServices(IServiceCollection services)** by adding
 ```cs
@@ -44,12 +43,12 @@ The you need to configure OpenID Connect. This is done in **Startup.cs** method 
     });
 ```
 
-If LoginHint is not specified then the default authentication method for the specified ClientId will be used.
+If LoginHint is not specified then the default authentication method for the specified ClientId will be used.  
 If UiLocales is not specified then the default local for the authentication method will be used.
----
 
+---
 ##  Configure SSL/TLS Port on IIS Express manually
-The port used for the example are 45000.
+The port used for the example are 45000.  
 If SSL/TLS is not setup on that port you can configure it manually.
 
 1. Open up an elevated Command Prompt (i.e. run Command Prompt as administrator)

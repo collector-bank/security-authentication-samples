@@ -3,15 +3,14 @@
 WS-Federation sample using  ASP.NET using .NET Framework with OWIN
 
 ---
-
 ## Nuget Packages
 You will need to include the following Nuget packages:
 
  * Microsoft.Owin.Security.WsFederation
  * Microsoft.Owin.Security.Cookies
  * Microsoft.Owin.Host.SystemWeb (needed otherwise OwinStartup will not call Configuration method for the class specified)
----
 
+---
 ## Code needed
 Create Startup.cs under App_Start folder.
 
@@ -42,12 +41,12 @@ In the **public void Configuration(IAppBuilder app)** you need to configure Open
     });
 ```
 
-If coauth is not specified then the default authentication method for the specified Wtrealm will be used.
+If coauth is not specified then the default authentication method for the specified Wtrealm will be used.  
 If colocales is not specified then the default local for the authentication method will be used.
----
 
+---
 ##  Configure SSL/TLS Port on IIS Express manually
-The port used for the example are 45200.
+The port used for the example are 45200.  
 If SSL/TLS is not setup on that port you can configure it manually.
 
 1. Open up an elevated Command Prompt (i.e. run Command Prompt as administrator)

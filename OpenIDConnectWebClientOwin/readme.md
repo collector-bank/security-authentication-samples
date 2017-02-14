@@ -3,15 +3,14 @@
 OpenID Connect Implict flow sample using  ASP.NET using .NET Framework with OWIN
 
 ---
-
 ## Nuget Packages
 You will need to include the following Nuget packages:
 
  * Microsoft.Owin.Security.OpenIdConnect
  * Microsoft.Owin.Security.Cookies
  * Microsoft.Owin.Host.SystemWeb (needed otherwise OwinStartup will not call Configuration method for the class specified)
----
 
+---
 ## Code needed
 Create Startup.cs under App_Start folder.
 
@@ -43,12 +42,12 @@ In the **public void Configuration(IAppBuilder app)** you need to configure Open
     });
 ```
 
-If LoginHint is not specified then the default authentication method for the specified ClientId will be used.
+If LoginHint is not specified then the default authentication method for the specified ClientId will be used.  
 If UiLocales is not specified then the default local for the authentication method will be used.
----
 
+---
 ##  Configure SSL/TLS Port on IIS Express manually
-The port used for the example are 45100.
+The port used for the example are 45100.  
 If SSL/TLS is not setup on that port you can configure it manually.
 
 1. Open up an elevated Command Prompt (i.e. run Command Prompt as administrator)

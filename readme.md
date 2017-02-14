@@ -2,7 +2,6 @@
 # Collector Identity Provider (IdP)
 
 ---
-
 ## Overview
 The Collector IdP supports OAuth OpenID Connect implict flow and the WS-Federation protocol.
 
@@ -28,8 +27,8 @@ Authentication methods supported:
  * Swedish BankID
  * Norwegain BankID
  * Finnish Tupas
----
 
+---
 ## Prerequisites
 In order to use Collector IdP you need to preregister by contacting Collector ?? [TODO INSERT CONTACT INFO].
 
@@ -48,8 +47,8 @@ After that you can call the authorize endpoint using OAuth OpenID Connect implic
 ### WSFederation
 For WSFederation you need to specify the Realm you want to use and optional any redirect URIs you want to use with the realm.  
 If you won't specify any redirect URIs then the Realm will also function as redirect URI.
----
 
+---
 ## Customization
 Collector IdP specific parameter values that can be set when making authentication request.
 
@@ -76,6 +75,7 @@ For other parameters see the specification:
 
 ### Authentication methods
 The Authentication methods supported
+
 Authentication method | Value
 --------------------- | -----
 Swedish BankI | sbid
@@ -96,8 +96,8 @@ Authentication method | Supporeted UI Locales | Default UI Locales
 Swedish BankID (sbid) | sv, en | sv
 Norwegain BankID (nbid) | nb, en | nb
 Finnish Tupas (tupas) | fi, sv, en | fi
----
 
+---
 ## Try It Out
 
 ### To test OAuth OpenID Connect implict flow
@@ -128,10 +128,11 @@ For Test and UAT you need to have test user when authenticating.
  * Swedish BankID follow the instructions at [https://demo.bankid.com/](https://demo.bankid.com/)
  * Norwegain BankID you can use national identifier: **21048349827** and for OTP (One Time Password) type **otp** and the password for the user is **qwer1234**
  * Finnish Tupas you only need to select Nordea then click continue on each step (the forms should be auto filled).
----
 
+---
 ## Samples
 All samples are written in C# using ASP.NET.
+
 Sample | Protocol | Description
 ------ | -------  | -----------
 OpenIDConnectWebClientCore | OpenID Connect implict flow | ASP.NET Core using .NETCore 1.1.0 framework
