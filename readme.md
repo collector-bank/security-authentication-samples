@@ -1,6 +1,23 @@
 
 # Collector Identity Provider (IdP)
 
+## Table of Content
+ 1. [Overview](#markdown-heading-overview)  
+ 2. [Prerequisites](#markdown-heading-prerequisites)  
+    2.1 [Authentication methods](#markdown-heading-authentication-methods)  
+    2.2 [OAuth OpenID Connect implict flow](markdown-heading-oauth-openid-connect-implict-flow)  
+    2.3 [WSFederation](markdown-heading-wsfederation)  
+ 3. [Customization](#markdown-heading-customization)  
+    3.1 [OAuth OpenID Connect implict flow custom parameter values](#markdown-heading-oauth-openid-connect-implict-flow-custom-parameter-values)  
+    3.2 [WSFederation custom parameters](#markdown-heading-wsfederation-custom-parameters)  
+    3.3 [Authentication methods](#markdown-heading-authentication-methods)  
+    3.4 [UI Locales and authentication methods](#markdown-heading-ui-locales-and-authentication-methods)  
+ 4. [Try It Out](#markdown-heading-try-it-out)  
+    4.1 [To test OAuth OpenID Connect implict flow](#markdown-heading-to-test-oauth-openid-connect-implict-flow)  
+    4.2 [To test WSFederation](#markdown-heading-to-test-wsfederation)  
+    4.3 [Test User](#markdown-heading-test-user)  
+ 5. [Samples](#markdown-heading-samples)  
+
 ---
 ## Overview
 The Collector IdP supports OAuth OpenID Connect implict flow and the WS-Federation protocol.
