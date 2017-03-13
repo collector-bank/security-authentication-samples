@@ -1,28 +1,40 @@
 
 # Collector Identity Provider (IdP)
 
- [TOC]
-
+ 1. [Overview](#overview)
+ 1. [Prerequisites](#prerequisites)
+    1. [Authentication methods](#authentication-methods)
+    1. [OAuth OpenID Connect implict flow](#oauth-openid-connect-implict-flow)
+    1. [WSFederation](#wsfederation)
+ 1. [Customization](#customization)
+    1. [OAuth OpenID Connect implict flow custom parameter values](#oauth-openid-connect-implict-flow-custom-parameter-values)
+    1. [WSFederation custom parameters](#wsfederation-custom-parameters)
+    1. [Authentication methods](#authentication-methods)
+    1. [UI Locales and authentication methods](#ui-locales-and-authentication-methods)
+ 1. [Try It Out](#try-it-out)
+    1. [To test OAuth OpenID Connect implict flow](#to-test-oauth-openid-connect-implict-flow)
+    1. [To test WSFederation](#to-test-wsfederation)
+    1. [Test User](#test-user)
+ 1. [Samples](#samples)
+    
+    
 ---
 ## Overview
 The Collector IdP supports OAuth OpenID Connect implict flow and the WS-Federation protocol.
 
-There are three environments
+There are two environments
 
- * Test **https://web-idpserver-auth-test.azurewebsites.net**
- * UAT **https://web-idpserver-auth-uat.azurewebsites.net**
+ * UAT **https://idp-uat.collectorbank.se**
  * PROD **https://idp.collectorbank.se**
 
 The metadata address for each environments are located at
 
- * OAuth OpenID Connect Discovery:  /.well-known/openid-configuration  
-   [Test](https://web-idpserver-auth-test.azurewebsites.net/.well-known/openid-configuration)  
-   [UAT](https://web-idpserver-auth-uat.azurewebsites.net/.well-known/openid-configuration)  
-   [PROD](https://idp.collectorbank.se/.well-known/openid-configuration)  
- * WS-Federation Metadata: /2007-06/FederationMetadata.xml  
-   [Test](https://web-idpserver-auth-test.azurewebsites.net/2007-06/FederationMetadata.xml)  
-   [UAT](https://web-idpserver-auth-uat.azurewebsites.net/2007-06/FederationMetadata.xml)  
-   [PROD](https://idp.collectorbank.se/2007-06/FederationMetadata.xml)  
+ * OAuth OpenID Connect Discovery (**/.well-known/openid-configuration**)
+   * UAT: [https://idp-uat.collectorbank.se/.well-known/openid-configuration](https://idp-uat.collectorbank.se/.well-known/openid-configuration)
+   * PROD: [https://idp.collectorbank.se/.well-known/openid-configuration](https://idp.collectorbank.se/.well-known/openid-configuration)
+ * WS-Federation Metadata (**/2007-06/FederationMetadata.xml**)
+   * UAT: [https://idp-uat.collectorbank.se/2007-06/FederationMetadata.xml](https://idp-uat.collectorbank.se/2007-06/FederationMetadata.xml)
+   * PROD: [https://idp.collectorbank.se/2007-06/FederationMetadata.xml](https://idp.collectorbank.se/2007-06/FederationMetadata.xml)  
 
 Authentication methods supported:
 
@@ -104,8 +116,8 @@ Finnish Tupas (tupas) | fi, sv, en | fi
 
 ### To test OAuth OpenID Connect implict flow
 You can use the following settings to try out OAuth OpenID Connect implict flow in the test environment.  
-Server **https://web-idpserver-auth-test.azurewebsites.net/**  
-client\_id: **btwzQWmTSKeKfubsTzdYvw**  
+Server **https://idp-uat.collectorbank.se/**  
+client\_id: **MZxDS_9hY64cva_-9eV**  
 response\_type: **id\_token**  
 Redirect Uris that you can use are:  
  **https://localhost:45000/signin-oidc**  
@@ -120,7 +132,7 @@ You can also specify ui_locales see for more information [UI Locales and authent
 ### To test WSFederation
 Wtrealm: **https://localhost/wsfed**  
 Wreply: **https://localhost:45200/signin-wsfed**  
-MetadataAddress: **https://web-idpserver-auth-test.azurewebsites.net/2007-06/FederationMetadata.xml**
+MetadataAddress: **https://idp-uat.collectorbank.se//2007-06/FederationMetadata.xml**
 
 ### Test User
 For PROD you will need to have real account when authenticating.

@@ -2,6 +2,10 @@
 # OpenIDConnectWebClientCore
 OpenID Connect Implict flow sample using ASP.NET Core using .NETCore 1.1.0 framework.
 
+ 1. [Nuget Packages](#nuget-packages)
+ 1. [Code needed](#code-needed)
+ 1. [Configure SSL/TLS Port on IIS Express manually](#configure-ssltls-port-on-iis-express-manually)
+
 ---
 ## Nuget Packages
 You will need to include the following Nuget packages:
@@ -26,8 +30,8 @@ The you need to configure OpenID Connect. This is done in **Startup.cs** method 
     app.UseOpenIdConnectAuthentication(new OpenIdConnectOptions
     {
         SignInScheme = CookieAuthenticationDefaults.AuthenticationScheme,
-        Authority = "https://web-idpserver-auth-test.azurewebsites.net/",
-        ClientId = "btwzQWmTSKeKfubsTzdYvw",
+        Authority = "https://idp-uat.collectorbank.se/",
+        ClientId = "MZxDS_9hY64cva_-9eV",
         Events = new OpenIdConnectEvents    // This is needed if you want to controll the authentication method and ui local that is used
         {
             OnRedirectToIdentityProvider = ctx =>
@@ -47,7 +51,7 @@ If LoginHint is not specified then the default authentication method for the spe
 If UiLocales is not specified then the default local for the authentication method will be used.
 
 ---
-##  Configure SSL/TLS Port on IIS Express manually
+## Configure SSL/TLS Port on IIS Express manually
 The port used for the example are 45000.  
 If SSL/TLS is not setup on that port you can configure it manually.
 

@@ -25,7 +25,7 @@ namespace CollectorBank.Security.Authentication.Samples.WsFederationOwin
             {
                 Wtrealm = "https://localhost/wsfed",
                 Wreply = "https://localhost:45200/signin-wsfed",
-                MetadataAddress = "https://web-idpserver-auth-test.azurewebsites.net/2007-06/FederationMetadata.xml",
+                MetadataAddress = "https://idp-uat.collectorbank.se/2007-06/FederationMetadata.xml",
                 Notifications = new WsFederationAuthenticationNotifications    // Need to be specified in order for OAuth OpenID Connect implicit flow to be used
                 {
                     RedirectToIdentityProvider = ctx =>

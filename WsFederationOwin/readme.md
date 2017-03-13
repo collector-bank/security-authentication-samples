@@ -2,6 +2,10 @@
 # WsFederationOwin
 WS-Federation sample using  ASP.NET using .NET Framework with OWIN
 
+ 1. [Nuget Packages](#nuget-packages)
+ 1. [Code needed](#code-needed)
+ 1. [Configure SSL/TLS Port on IIS Express manually](#configure-ssltls-port-on-iis-express-manually)
+
 ---
 ## Nuget Packages
 You will need to include the following Nuget packages:
@@ -25,7 +29,7 @@ In the **public void Configuration(IAppBuilder app)** you need to configure Open
     {
         Wtrealm = "https://localhost/wsfed",
         Wreply = "https://localhost:45200/signin-wsfed",
-        MetadataAddress = "https://web-idpserver-auth-test.azurewebsites.net/2007-06/FederationMetadata.xml",
+        MetadataAddress = "https://idp-uat.collectorbank.se/2007-06/FederationMetadata.xml",
         Notifications = new WsFederationAuthenticationNotifications    // Need to be specified in order for OAuth OpenID Connect implicit flow to be used
         {
             RedirectToIdentityProvider = ctx =>
@@ -45,7 +49,7 @@ If coauth is not specified then the default authentication method for the specif
 If colocales is not specified then the default local for the authentication method will be used.
 
 ---
-##  Configure SSL/TLS Port on IIS Express manually
+## Configure SSL/TLS Port on IIS Express manually
 The port used for the example are 45200.  
 If SSL/TLS is not setup on that port you can configure it manually.
 

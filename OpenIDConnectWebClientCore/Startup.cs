@@ -36,8 +36,8 @@ namespace CollectorBank.Security.Authentication.Samples.OpenIDConnectWebClientCo
             app.UseOpenIdConnectAuthentication(new OpenIdConnectOptions
             {
                 SignInScheme = CookieAuthenticationDefaults.AuthenticationScheme,
-                Authority = "https://web-idpserver-auth-test.azurewebsites.net/",
-                ClientId = "btwzQWmTSKeKfubsTzdYvw",
+                Authority = "https://idp-uat.collectorbank.se/",
+                ClientId = "MZxDS_9hY64cva_-9eV",
                 Events = new OpenIdConnectEvents
                 {
                     OnRedirectToIdentityProvider = ctx =>
