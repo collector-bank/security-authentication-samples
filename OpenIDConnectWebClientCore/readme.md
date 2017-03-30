@@ -31,13 +31,15 @@ The you need to configure OpenID Connect. This is done in **Startup.cs** method 
     {
         SignInScheme = CookieAuthenticationDefaults.AuthenticationScheme,
         Authority = "https://idp-uat.collectorbank.se/",
-        ClientId = "MZxDS_9hY64cva_-9eV",
+        ClientId = "MZxDS_9hY64cva_-V9eV",
         Events = new OpenIdConnectEvents    // This is needed if you want to controll the authentication method and ui local that is used
         {
             OnRedirectToIdentityProvider = ctx =>
             {
-                // The desired authentication method. Allowed values are: sbid, nbid and tupas.
-                ctx.ProtocolMessage.LoginHint = "nbid";
+                // LoginHint contain the desired authentication method of nbid along with authentication hint of the end user.
+                // Security warning information disclosure the national identifier will be sent in the front channel
+                // reveling information about the expected end user that should authenticated themselves.
+                ctx.ProtocolMessage.LoginHint = "nbid_21048349827";
                 // The desired UI locales.
                 // Value can be one or more of the following locales (sv, nb, fi, en) seperated by space where the first UI locales in the list that the authenication method supports will be used.
                 ctx.ProtocolMessage.UiLocales = "sv nb";

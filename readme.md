@@ -67,10 +67,16 @@ If you won't specify any redirect URIs then the Realm will also function as redi
 Collector IdP specific parameter values that can be set when making authentication request.
 
 ### OAuth OpenID Connect implict flow custom parameter values
-OAuth Parameter | Values | Desription
---------------- | ------ | ----------
-login\_hint | sbid, nbid or tupas | Specifies the authentication method to use. Note that the Client must be allowed to use the authentication method specified.
-ui\_locales | sv, nb, fi, en | One or more ui locales seperated by space. See [UI Locales and authentication](#UI Locales and authentication methods) methods for more info.
+OAuth Parameter | Values | Desription |
+--------------- | ------ | -----------|
+login\_hint | AuthCode or AuthCode_AuthHint | Specifies the code of the authentication method to use and optional information about the end user that is expected to be authenticated. Note that the Client must be allowed to use the authentication method specified.
+ui\_locales | sv, nb, fi, en | One or more ui locales seperated by space. See [UI Locales and authentication](#ui-locales-and-authentication-methods) methods for more info.
+
+Example login\_hint can be set to nbid_21048349827 then the first step in Norwegian BankID, where the end user enters the national identifier, will be skipped. If the value
+is set to nbid then the end user must enter there national identifier themself.
+**WARNING** Using AuthHint in login\_hint paramater will lead to an information disclosure since the national identifier will be sent in a front channel reveling information 
+about the expected end user that the system expect to authenticate.
+
 
 For other parameters see the specification:
 
@@ -81,20 +87,26 @@ For other parameters see the specification:
 Custom WSFederation Pamater | Values | Desription
 --------------------------- | ------ | ----------
 coauth | sbid, nbid or tupas | Specifies the authentication method to use. Note that the Client must be allowed to use the authentication method specified.
+cohint | Dependent on the coauth value | Specifies optional information about the end user that is expected to be authenticated.
 colocales | sv, nb, fi, en | One or more ui locales seperated by space. See [UI Locales and authentication](#UI Locales and authentication methods) methods for more info.
+
+**WARNING** Using cohint parameter will lead to an information disclosure since the national identifier will be sent in a front channel reveling information 
+about the expected end user that the system expect to authenticate.
 
 For other parameters see the specification:
 
  * [WS-Federation Version 1.2](http://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html)
 
-### Authentication methods
-The Authentication methods supported
+### Authentication methods 
 
-Authentication method | Value
---------------------- | -----
-Swedish BankI | sbid
-Norwegain BankID | nbid
-Finnish Tupas | tupas
+Authentication method | Code | Hint | Hint Description |
+--------------------- | -----|------|------------------|
+Swedish BankI | sbid | yyyyMMddNNNC | where dd = day, MM = month, yyyy = year, NNN = serial number, C = control digits |
+Norwegain BankID | nbid | ddMMyyZZZQQ | where dd = day, MM = month, yy = year, ZZZ = serial number, QQ = control digits |
+Finnish Tupas | tupas | ddMMyyCzzzQ | where dd = day, MM = month, yy = year, C = Century sign can have value +, - or A, zzz = serial number, Q = control digit |
+
+**WARNING** Using Hint will lead to an information disclosure since the national identifier will be sent in a front channel reveling information 
+about the expected end user that the system expect to authenticate.
 
 ### UI Locales and authentication methods
 The UI local that will be used will be based on the UI Locales specified in authentication request and the UI Locales that the authentication method to use supports.
@@ -117,7 +129,7 @@ Finnish Tupas (tupas) | fi, sv, en | fi
 ### To test OAuth OpenID Connect implict flow
 You can use the following settings to try out OAuth OpenID Connect implict flow in the test environment.  
 Server **https://idp-uat.collectorbank.se/**  
-client\_id: **MZxDS_9hY64cva_-9eV**  
+client\_id: **MZxDS_9hY64cva_-V9eV**  
 response\_type: **id\_token**  
 Redirect Uris that you can use are:  
  **https://localhost:45000/signin-oidc**  

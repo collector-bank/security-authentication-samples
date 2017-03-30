@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
@@ -34,7 +33,7 @@ namespace CollectorBank.Security.Authentication.Samples.WsFederationOwin
                         ctx.ProtocolMessage.SetParameter("coauth", "tupas");
                         // The desired UI locales are passed in the custom colocales parameter.
                         // Value can be one or more of the following locales (sv, nb, fi, en) seperated by space where the first UI locales in the list that the authenication method supports will be used.
-                        ctx.ProtocolMessage.SetParameter("colocales", "fi, sv, en");
+                        ctx.ProtocolMessage.SetParameter("colocales", "fi sv en");
                         return Task.CompletedTask;
                     }
                 }

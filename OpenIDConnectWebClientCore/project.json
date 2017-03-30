@@ -1,17 +1,17 @@
 ﻿{
   "dependencies": {
     "Microsoft.NETCore.App": {
-      "version": "1.1.0",
+      "version": "1.1.1",
       "type": "platform"
     },
-    "Microsoft.AspNetCore.Diagnostics": "1.1.0",
-    "Microsoft.AspNetCore.Server.IISIntegration": "1.1.0",
-    "Microsoft.AspNetCore.Server.Kestrel": "1.1.0",
-    "Microsoft.Extensions.Logging.Console": "1.1.0",
-    "Microsoft.AspNetCore.Mvc": "1.1.0",
+    "Microsoft.AspNetCore.Diagnostics": "1.1.1",
+    "Microsoft.AspNetCore.Server.IISIntegration": "1.1.1",
+    "Microsoft.AspNetCore.Server.Kestrel": "1.1.1",
+    "Microsoft.Extensions.Logging.Console": "1.1.1",
+    "Microsoft.AspNetCore.Mvc": "1.1.2",
 
-    "Microsoft.AspNetCore.Authentication.OpenIdConnect": "1.1.0",
-    "Microsoft.AspNetCore.Authentication.Cookies": "1.1.0"
+    "Microsoft.AspNetCore.Authentication.OpenIdConnect": "1.1.1",
+    "Microsoft.AspNetCore.Authentication.Cookies": "1.1.1"
   },
 
   "tools": {
@@ -20,14 +20,12 @@
 
   "frameworks": {
     "netcoreapp1.1": {
-      "imports": "dnxcore50"
     }
   },
 
   "buildOptions": {
     "emitEntryPoint": true,
-    "preserveCompilationContext": true,
-    "outputName": "CollectorBank.Security.Authentication.Samples.OpenIDConnectWebClientCore"
+    "preserveCompilationContext": true
   },
 
   "runtimeOptions": {

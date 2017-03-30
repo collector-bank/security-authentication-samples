@@ -24,7 +24,7 @@ namespace CollectorBank.Security.Authentication.Samples.OpenIDConnectWebClientOw
             app.UseOpenIdConnectAuthentication(new OpenIdConnectAuthenticationOptions
             {
                 Authority = "https://idp-uat.collectorbank.se/",
-                ClientId = "MZxDS_9hY64cva_-9eV",
+                ClientId = "MZxDS_9hY64cva_-V9eV",
                 RedirectUri = "https://localhost:45100/signin",
                 ResponseType = "id_token",    // Need to be specified in order for OAuth OpenID Connect implicit flow to be used
                 Notifications = new OpenIdConnectAuthenticationNotifications    // This is needed if you want to controll the authentication method and ui local that is used
