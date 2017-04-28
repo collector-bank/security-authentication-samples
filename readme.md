@@ -44,7 +44,7 @@ Authentication methods supported:
 
 ---
 ## Prerequisites
-In order to use Collector IdP you need to preregister by contacting Collector ?? [TODO INSERT CONTACT INFO].
+In order to use Collector IdP you need to preregister by contacting [Collector](mailto:merchant@collectorbank.se).
 
 ### Authentication methods
 Specify which authentication methods you want to use Swedish BankID, Norwegain BankID or Finnish Tupas.
