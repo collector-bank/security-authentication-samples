@@ -127,7 +127,7 @@ Finnish Tupas (tupas) | fi, sv, en | fi
 ## Try It Out
 
 ### To test OAuth OpenID Connect implict flow
-You can use the following settings to try out OAuth OpenID Connect implict flow in the test environment.  
+You can use the following settings to try out OAuth OpenID Connect implicit flow in the test environment.  
 Server **https://idp-uat.collectorbank.se/**  
 client\_id: **MZxDS_9hY64cva_-V9eV**  
 response\_type: **id\_token**  
@@ -136,6 +136,8 @@ Redirect Uris that you can use are:
  **https://localhost:45000/signin**  
  **https://localhost:45100/signin-oidc**  
  **https://localhost:45100/signin**  
+
+Note that the URI has to be URL-encoded and that you might need to provide a base64-encoded nonce as a parameter.
 
 Additional you can specify sbid, nbid, or tupas as login\_hint.  
 If you don't specify any loing\_hint the sbid (Swedish BankID) will be used by default.  
