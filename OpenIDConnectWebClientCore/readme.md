@@ -15,38 +15,36 @@ You will need to include the following Nuget packages:
 
 ---
 ## Code needed
-You need to activate authentication in **Startup.cs** method **public void ConfigureServices(IServiceCollection services)** by adding
+You need to configure authentication in **Startup.cs** method **public void ConfigureServices(IServiceCollection services)** by adding
 ```cs
-    services.AddAuthentication(options => options.SignInScheme = CookieAuthenticationDefaults.AuthenticationScheme);
+    services
+        .AddAuthentication(options =>
+        {
+            options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+            options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+            options.DefaultChallengeScheme = OpenIdConnectDefaults.AuthenticationScheme;
+        })
+        .AddCookie()
+        .AddOpenIdConnect(options =>
+        {
+            options.ClientId = "MZxDS_9hY64cva_-V9eV";
+            options.ClientSecret = "secret";
+            options.Authority = "https://idp-uat.collectorbank.se/";
+            options.ResponseType = OpenIdConnectResponseType.Code;
+            options.SignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+            options.Events.OnRedirectToIdentityProvider = ctx => 
+              // This is needed if you want to controll the authentication method and ui local that is used, per login request
+            {
+                ctx.ProtocolMessage.AcrValues = "urn:collectorbank:ac:method:nbid"; // Set desired login method
+                ctx.ProtocolMessage.UiLocales = "sv nb"; // And desired language
+                return Task.CompletedTask;
+            };
+        });
 ```
 
-The you need to configure OpenID Connect. This is done in **Startup.cs** method **public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)**
+Then you need to activate Authentication aswell. This is done in **Startup.cs** method **public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)**
 ```c
-    app.UseCookieAuthentication(new CookieAuthenticationOptions
-    {
-        AuthenticationScheme = CookieAuthenticationDefaults.AuthenticationScheme
-    });
-
-    app.UseOpenIdConnectAuthentication(new OpenIdConnectOptions
-    {
-        SignInScheme = CookieAuthenticationDefaults.AuthenticationScheme,
-        Authority = "https://idp-uat.collectorbank.se/",
-        ClientId = "MZxDS_9hY64cva_-V9eV",
-        Events = new OpenIdConnectEvents    // This is needed if you want to controll the authentication method and ui local that is used
-        {
-            OnRedirectToIdentityProvider = ctx =>
-            {
-                // LoginHint contain the desired authentication method of nbid along with authentication hint of the end user.
-                // Security warning information disclosure the national identifier will be sent in the front channel
-                // reveling information about the expected end user that should authenticated themselves.
-                ctx.ProtocolMessage.LoginHint = "nbid_21048349827";
-                // The desired UI locales.
-                // Value can be one or more of the following locales (sv, nb, fi, en) seperated by space where the first UI locales in the list that the authenication method supports will be used.
-                ctx.ProtocolMessage.UiLocales = "sv nb";
-                return Task.CompletedTask;
-            }
-        }
-    });
+    app.UseAuthentication();
 ```
 
 If LoginHint is not specified then the default authentication method for the specified ClientId will be used.  
