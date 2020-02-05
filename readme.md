@@ -117,7 +117,7 @@ For PROD you will need to have real account when authenticating.
 For Test and UAT you need to have test user when authenticating.  
 
  * Swedish BankID follow the instructions at [https://demo.bankid.com/](https://demo.bankid.com/)
- * Norwegain BankID you can use national identifier: **21048349827** and for OTP (One Time Password) type **otp** and the password for the user is **qwer1234**
+ * Norwegian BankID you can use national identifier: **21048349827** and for OTP (One Time Password) type **otp** and the password for the user is **qwer1234**
  * Finnish Trust Network you only need to select Nordea then click continue on each step (the forms should be auto filled).
  * Danish NemID follow the instructions at [https://www.nets.eu/dk-da/l%C3%B8sninger/nemid/nemid-tjenesteudbyder/Pages/bestil.aspx](https://www.nets.eu/dk-da/l%C3%B8sninger/nemid/nemid-tjenesteudbyder/Pages/bestil.aspx)
 ---
