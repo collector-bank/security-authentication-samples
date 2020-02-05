@@ -33,16 +33,16 @@ The metadata address for each environments are located at
 Authentication methods supported:
 
  * Swedish BankID
- * Norwegain BankID
- * Norwegain Mobile BankID
- * Finnsh Trust Network
+ * Norwegian BankID
+ * Norwegian Mobile BankID
+ * Finnish Trust Network
  * Danish NemID
 ---
 ## Prerequisites
 In order to use Collector IdP you need to preregister by contacting [Collector](mailto:merchant@collectorbank.se).
 
 ### Authentication methods
-Specify which authentication methods you want to use Swedish BankID, Norwegain BankID or Finnsh Trust Network.
+Specify which authentication methods you want to use Swedish BankID, Norwegian BankID or Finnish Trust Network.
 
 If you specify more than one specify which one you want as the default, i.e. it will be used as standard if you won't specify a specific one when making authentication request.
 
@@ -60,7 +60,7 @@ Collector IdP specific parameter values that can be set when making authenticati
 ### OAuth OpenID Connect code flow custom parameter values
 OAuth Parameter | Values | Desription |
 --------------- | ------ | -----------|
-ui\_locales | sv, nb, fi, en | One or more ui locales seperated by space. See [UI Locales and authentication](#ui-locales-and-authentication-methods) methods for more info.
+ui\_locales | sv, nb, fi, en | One or more ui locales separated by space. See [UI Locales and authentication](#ui-locales-and-authentication-methods) methods for more info.
 
 For other parameters see the specification:
 
