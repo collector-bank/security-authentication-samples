@@ -17,7 +17,7 @@
     
 ---
 ## Overview
-The Collector IdP supports OAuth OpenID Connect code flow and the WS-Federation protocol.
+The Collector IdP supports OAuth OpenID Connect code flow.
 
 There are two environments
 
