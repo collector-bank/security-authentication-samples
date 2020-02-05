@@ -72,8 +72,8 @@ For other parameters see the specification:
 Authentication method | Code | SSN | SSN Description |
 --------------------- | -----|------|------------------|
 Swedish BankID | urn:collectorbank:ac:method:sbid | yyyyMMddNNNC | where dd = day, MM = month, yyyy = year, NNN = serial number, C = control digits |
-Norwegain BankID | urn:collectorbank:ac:method:nbid | ddMMyyZZZQQ | where dd = day, MM = month, yy = year, ZZZ = serial number, QQ = control digits |
-Norwegain Mobile BankID | urn:collectorbank:ac:method:nbid-mobile | ddMMyyZZZQQ | where dd = day, MM = month, yy = year, ZZZ = serial number, QQ = control digits |
+Norwegian BankID | urn:collectorbank:ac:method:nbid | ddMMyyZZZQQ | where dd = day, MM = month, yy = year, ZZZ = serial number, QQ = control digits |
+Norwegian Mobile BankID | urn:collectorbank:ac:method:nbid-mobile | ddMMyyZZZQQ | where dd = day, MM = month, yy = year, ZZZ = serial number, QQ = control digits |
 Finnish Trust Network | urn:collectorbank:ac:method:ftn | ddMMyyCzzzQ | where dd = day, MM = month, yy = year, C = Century sign can have value +, - or A, zzz = serial number, Q = control digit |
 Danish NemID | urn:collectorbank:ac:method:nemid | ddMMyy-ssss | where dd = day, MM = month, yy = year, ssss = Sequence number |
 
@@ -89,8 +89,8 @@ If UI Locales is not specified in the authentication then the default UI locales
 Authentication method (acr value) | Supporeted UI Locales | Default UI Locales
 --------------------- | --------------------- | ------------------
 Swedish BankID (urn:collectorbank:ac:method:sbid) | sv, en | sv
-Norwegain BankID (urn:collectorbank:ac:method:nbid) | nb, en | nb
-Norwegain Mobile BankID (urn:collectorbank:ac:method:nbid-mobil) | nb, en | nb
+Norwegian BankID (urn:collectorbank:ac:method:nbid) | nb, en | nb
+Norwegian Mobile BankID (urn:collectorbank:ac:method:nbid-mobil) | nb, en | nb
 Finnish Trust Network (urn:collectorbank:ac:method:ftn) | fi, sv, en | fi
 Danish NemID (urn:collectorbank:ac:method:nemid) | da, en | da
 
