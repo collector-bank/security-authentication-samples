@@ -33,25 +33,28 @@ The metadata address for each environments are located at
 Authentication methods supported:
 
  * Swedish BankID
+ * Swedish Mobile BankID
+ * Swedish Mobile BankID QR
  * Norwegian BankID
  * Norwegian Mobile BankID
  * Finnish Trust Network
+ * Finnish Tupas
  * Danish NemID
 ---
 ## Prerequisites
 In order to use Collector IdP you need to preregister by contacting [Collector](mailto:merchant@collectorbank.se).
 
 ### Authentication methods
-Specify which authentication methods you want to use Swedish BankID, Norwegian BankID or Finnish Trust Network.
+Specify which authentication methods you want to use, supportetd methods are mentioned above.
 
-If you specify more than one specify which one you want as the default, i.e. it will be used as standard if you won't specify a specific one when making authentication request.
+If you select more than one method, specify which one to set as the default, i.e. it will be used as standard if you don't specify any method in the authentication request.
 
 ### OAuth OpenID Connect code flow
-For OAuth OpenID Connect code flow you need to specify the redirect URIs that you want to use.
+For OAuth OpenID Connect code flow you need to specify the redirect URIs that should be available to use in an authentication request.
 
 The redirect URIs must have https schema. When you are registered you will get a Client Id.
 
-After that you can call the authorize endpoint using OAuth OpenID Connect code flow (i.e. response\_type=code and scope=openid)
+When the client is setup, you are able to call the authorize endpoint using OAuth OpenID Connect code flow (i.e. response\_type=code and scope=openid)
 
 ---
 ## Customization
@@ -72,9 +75,12 @@ For other parameters see the specification:
 Authentication method | Code | SSN | SSN Description |
 --------------------- | -----|------|------------------|
 Swedish BankID | urn:collectorbank:ac:method:sbid | yyyyMMddNNNC | where dd = day, MM = month, yyyy = year, NNN = serial number, C = control digits |
+Swedish BankID Mobile | urn:collectorbank:ac:method:sbid | yyyyMMddNNNC | where dd = day, MM = month, yyyy = year, NNN = serial number, C = control digits |
+Swedish BankID Mobile QR | urn:collectorbank:ac:method:sbid | yyyyMMddNNNC | where dd = day, MM = month, yyyy = year, NNN = serial number, C = control digits |
 Norwegian BankID | urn:collectorbank:ac:method:nbid | ddMMyyZZZQQ | where dd = day, MM = month, yy = year, ZZZ = serial number, QQ = control digits |
 Norwegian Mobile BankID | urn:collectorbank:ac:method:nbid-mobile | ddMMyyZZZQQ | where dd = day, MM = month, yy = year, ZZZ = serial number, QQ = control digits |
 Finnish Trust Network | urn:collectorbank:ac:method:ftn | ddMMyyCzzzQ | where dd = day, MM = month, yy = year, C = Century sign can have value +, - or A, zzz = serial number, Q = control digit |
+Finnish Tupas | urn:collectorbank:ac:method:ftn | ddMMyyCzzzQ | where dd = day, MM = month, yy = year, C = Century sign can have value +, - or A, zzz = serial number, Q = control digit |
 Danish NemID | urn:collectorbank:ac:method:nemid | ddMMyy-ssss | where dd = day, MM = month, yy = year, ssss = Sequence number |
 
 ### UI Locales and authentication methods
@@ -89,9 +95,12 @@ If UI Locales is not specified in the authentication then the default UI locales
 Authentication method (acr value) | Supporeted UI Locales | Default UI Locales
 --------------------- | --------------------- | ------------------
 Swedish BankID (urn:collectorbank:ac:method:sbid) | sv, en | sv
+Swedish BankID Mobile (urn:collectorbank:ac:method:sbid-mobil) | sv, en | sv
+Swedish BankID Mobile QR (urn:collectorbank:ac:method:sbid-qr) | sv, en | sv
 Norwegian BankID (urn:collectorbank:ac:method:nbid) | nb, en | nb
 Norwegian Mobile BankID (urn:collectorbank:ac:method:nbid-mobil) | nb, en | nb
 Finnish Trust Network (urn:collectorbank:ac:method:ftn) | fi, sv, en | fi
+Finnish Tupas (urn:collectorbank:ac:method:tupas) | fi, sv, en | fi
 Danish NemID (urn:collectorbank:ac:method:nemid) | da, en | da
 
 ---
