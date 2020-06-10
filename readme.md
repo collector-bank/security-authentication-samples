@@ -18,7 +18,8 @@
 
 ## Overview
 The Collector IdP supports OAuth OpenID Connect code flow.
-Details can be found at https://connect2id.com/learn/openid-connect
+Details can be found at [connect2id](https://connect2id.com/learn/openid-connect).
+
 
 There are two environments
 
@@ -53,12 +54,13 @@ Provide information regarding
 ### Authentication methods
 Specify which authentication methods you want to use, supported methods are listed above.
 
-If you select more than one method, specify which one to set as the default, i.e. it will be used as standard if you don't specify any method in the authentication request.
+If you select more than one method, specify which one to set as the default, it will be used as authentication method if not specified in an authentication request.
 
 ### Redirect URIs
 For OAuth OpenID Connect code flow you need to specify redirect URIs that should be available to use in an authentication request.
 
 The redirect URIs must have https schema. When you are registered you will get a Client Id.
+
 
 When the client is setup, you are able to call the authorize endpoint using OAuth OpenID Connect code flow (i.e. response\_type=code and scope=openid)
 
@@ -68,9 +70,9 @@ When the client is setup, you are able to call the authorize endpoint using OAut
 Collector IdP specific parameter values that can be set when making authentication request.
 
 ### OAuth OpenID Connect code flow custom parameter values
-OAuth Parameter | Values | Desription |
+OAuth Parameter | Values | Description |
 --------------- | ------ | -----------|
-ui\_locales | sv, nb, fi, en | One or more ui locales separated by space. See [UI Locales and authentication](#ui-locales-and-authentication-methods) methods for more info.
+ui\_locales | sv, nb, fi, en | One or more ui locales separated by space. See [Authentication method details](#authentication-method-details) for more info.
 
 For other parameters see the specification:
 
@@ -79,36 +81,28 @@ For other parameters see the specification:
 
 ### Authentication method details
 
-Authentication method | Code | SSN | SSN Description |
---------------------- | -----|------|------------------|
-Swedish BankID | urn:collectorbank:ac:method:sbid | yyyyMMddNNNC | where dd = day, MM = month, yyyy = year, NNN = serial number, C = control digits |
-Swedish BankID Mobile | urn:collectorbank:ac:method:sbid | yyyyMMddNNNC | where dd = day, MM = month, yyyy = year, NNN = serial number, C = control digits |
-Swedish BankID Mobile QR | urn:collectorbank:ac:method:sbid | yyyyMMddNNNC | where dd = day, MM = month, yyyy = year, NNN = serial number, C = control digits |
-Norwegian BankID | urn:collectorbank:ac:method:nbid | ddMMyyZZZQQ | where dd = day, MM = month, yy = year, ZZZ = serial number, QQ = control digits |
-Norwegian Mobile BankID | urn:collectorbank:ac:method:nbid-mobile | ddMMyyZZZQQ | where dd = day, MM = month, yy = year, ZZZ = serial number, QQ = control digits |
-Finnish Trust Network | urn:collectorbank:ac:method:ftn | ddMMyyCzzzQ | where dd = day, MM = month, yy = year, C = Century sign can have value +, - or A, zzz = serial number, Q = control digit |
-Finnish Tupas | urn:collectorbank:ac:method:ftn | ddMMyyCzzzQ | where dd = day, MM = month, yy = year, C = Century sign can have value +, - or A, zzz = serial number, Q = control digit |
-Danish NemID | urn:collectorbank:ac:method:nemid | ddMMyy-ssss | where dd = day, MM = month, yy = year, ssss = Sequence number |
+Authentication method | Code | SSN  |  UI Locale |  Default UI Locale |
+--------------------- | -----|------|------------------|---------|
+Swedish BankID | urn:collectorbank:ac:method:sbid | yyyyMMddNNNC | sv, en | sv |
+Swedish BankID Mobile | urn:collectorbank:ac:method:sbid | yyyyMMddNNNC | sv, en | sv |
+Swedish BankID Mobile QR | urn:collectorbank:ac:method:sbid | yyyyMMddNNNC | sv, en | sv |
+Norwegian BankID | urn:collectorbank:ac:method:nbid | ddMMyyZZZQQ | nb, en | nb |
+Norwegian Mobile BankID | urn:collectorbank:ac:method:nbid-mobile | ddMMyyZZZQQ | nb, en | nb |
+Finnish Trust Network | urn:collectorbank:ac:method:ftn | ddMMyyCzzzQ | fi, sv, en | fi |
+Finnish Tupas | urn:collectorbank:ac:method:ftn | ddMMyyCzzzQ | fi, sv, en | fi |
+Danish NemID | urn:collectorbank:ac:method:nemid | ddMMyy-ssss | da, en | da |
 
+ where d = day, M = month, y = year, C = century sign (+ or - or A), z = serial number, Q = control digit, s = sequence number
 ### UI Locales and authentication methods
-The UI local that will be used will be based on the UI Locales specified in authentication request and the UI Locales that the authentication method to use supports.
+The UI local used is based on the UI Locales specified in authentication request and the UI Locales that the authentication method supports.
 
 If UI Locales is specified in the authentication request then the first local in the list that are supported by the authentication method will be used.
 
-If no UI Locales is supported then the end user will see a screen where they can choose the local they want to use.
+If no UI Locales is supported, the end user will see a screen where they can choose the locale they want to use.
 
-If UI Locales is not specified in the authentication then the default UI locales for the authentication request will be used.
+If UI Locales is not specified in the authentication, the default UI locales for the authentication request will be used.
 
 Authentication method (acr value) | Supporeted UI Locales | Default UI Locales
---------------------- | --------------------- | ------------------
-Swedish BankID (urn:collectorbank:ac:method:sbid) | sv, en | sv
-Swedish BankID Mobile (urn:collectorbank:ac:method:sbid-mobil) | sv, en | sv
-Swedish BankID Mobile QR (urn:collectorbank:ac:method:sbid-qr) | sv, en | sv
-Norwegian BankID (urn:collectorbank:ac:method:nbid) | nb, en | nb
-Norwegian Mobile BankID (urn:collectorbank:ac:method:nbid-mobil) | nb, en | nb
-Finnish Trust Network (urn:collectorbank:ac:method:ftn) | fi, sv, en | fi
-Finnish Tupas (urn:collectorbank:ac:method:tupas) | fi, sv, en | fi
-Danish NemID (urn:collectorbank:ac:method:nemid) | da, en | da
 
 ---
 
@@ -126,7 +120,7 @@ Redirect Uris that you can use are:
  **https://localhost:45100/signin**  
  **https://localhost:44300/signin-oidc**
 
-You can also specify ui_locales see for more information [UI Locales and authentication methods](#ui-locales-and-authentication-methods)
+You can also specify ui_locales, [Authentication method details](#authentication-method-details)
 
 ### Test User
 
