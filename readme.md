@@ -4,20 +4,21 @@
  1. [Overview](#overview)
  1. [Prerequisites](#prerequisites)
     1. [Authentication methods](#authentication-methods)
-    1. [OAuth OpenID Connect code flow](#oauth-openid-connect-code-flow)
+    1. [Redirect URIs](#Redirect-URIs)
  1. [Customization](#customization)
     1. [OAuth OpenID Connect code flow custom parameter values](#oauth-openid-connect-code-flow-custom-parameter-values)
-    1. [Authentication methods](#authentication-methods)
+    1. [Authentication method details](#authentication-method-details)
     1. [UI Locales and authentication methods](#ui-locales-and-authentication-methods)
  1. [Try It Out](#try-it-out)
     1. [To test OAuth OpenID Connect code flow](#to-test-oauth-openid-connect-code-flow)
     1. [Test User](#test-user)
  1. [Samples](#samples)
-    
-    
+        
 ---
+
 ## Overview
 The Collector IdP supports OAuth OpenID Connect code flow.
+Details can be found at https://connect2id.com/learn/openid-connect
 
 There are two environments
 
@@ -40,23 +41,29 @@ Authentication methods supported:
  * Finnish Trust Network
  * Finnish Tupas
  * Danish NemID
+
 ---
+
 ## Prerequisites
 In order to use Collector IdP you need to preregister by contacting [Collector](mailto:merchant@collectorbank.se).
+Provide information regarding
+* Authentication methods
+* Redirect URIs
 
 ### Authentication methods
-Specify which authentication methods you want to use, supportetd methods are mentioned above.
+Specify which authentication methods you want to use, supported methods are listed above.
 
 If you select more than one method, specify which one to set as the default, i.e. it will be used as standard if you don't specify any method in the authentication request.
 
-### OAuth OpenID Connect code flow
-For OAuth OpenID Connect code flow you need to specify the redirect URIs that should be available to use in an authentication request.
+### Redirect URIs
+For OAuth OpenID Connect code flow you need to specify redirect URIs that should be available to use in an authentication request.
 
 The redirect URIs must have https schema. When you are registered you will get a Client Id.
 
 When the client is setup, you are able to call the authorize endpoint using OAuth OpenID Connect code flow (i.e. response\_type=code and scope=openid)
 
 ---
+
 ## Customization
 Collector IdP specific parameter values that can be set when making authentication request.
 
@@ -70,7 +77,7 @@ For other parameters see the specification:
  * [OpenID Connect](https://openid.net/connect/)
  * [OpenID Connect Core specification](http://openid.net/specs/openid-connect-core-1_0.html)
 
-### Authentication methods 
+### Authentication method details
 
 Authentication method | Code | SSN | SSN Description |
 --------------------- | -----|------|------------------|
@@ -104,6 +111,7 @@ Finnish Tupas (urn:collectorbank:ac:method:tupas) | fi, sv, en | fi
 Danish NemID (urn:collectorbank:ac:method:nemid) | da, en | da
 
 ---
+
 ## Try It Out
 
 ### To test OAuth OpenID Connect code flow
@@ -121,6 +129,7 @@ Redirect Uris that you can use are:
 You can also specify ui_locales see for more information [UI Locales and authentication methods](#ui-locales-and-authentication-methods)
 
 ### Test User
+
 For PROD you will need to have real account when authenticating.
 
 For Test and UAT you need to have test user when authenticating.  
@@ -129,8 +138,11 @@ For Test and UAT you need to have test user when authenticating.
  * Norwegian BankID you can use national identifier: **21048349827** and for OTP (One Time Password) type **otp** and the password for the user is **qwer1234**
  * Finnish Trust Network you only need to select Nordea then click continue on each step (the forms should be auto filled).
  * Danish NemID follow the instructions at [https://www.nets.eu/dk-da/l%C3%B8sninger/nemid/nemid-tjenesteudbyder/Pages/bestil.aspx](https://www.nets.eu/dk-da/l%C3%B8sninger/nemid/nemid-tjenesteudbyder/Pages/bestil.aspx)
+
 ---
+
 ## Samples
+
 All samples are written in C# using ASP.NET.
 
 Sample | Protocol | Description
