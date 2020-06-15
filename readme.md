@@ -54,7 +54,6 @@ Provide information regarding
 ### Authentication methods
 Specify which authentication methods you want to use, supported methods are listed above.
 
-If you select more than one method, specify which one to set as the default, it will be used as authentication method if not specified in an authentication request.
 
 ### Redirect URIs
 For OAuth OpenID Connect code flow you need to specify redirect URIs that should be available to use in an authentication request.
