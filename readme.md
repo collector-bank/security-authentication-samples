@@ -8,7 +8,7 @@
  1. [Customization](#customization)
     1. [OAuth OpenID Connect code flow custom parameter values](#oauth-openid-connect-code-flow-custom-parameter-values)
     1. [Authentication method details](#authentication-method-details)
-    1. [UI Locales and authentication methods](#ui-locales-and-authentication-methods)
+    1. [UI locales and authentication methods](#ui-locales-and-authentication-methods)
  1. [Try It Out](#try-it-out)
     1. [To test OAuth OpenID Connect code flow](#to-test-oauth-openid-connect-code-flow)
     1. [Test User](#test-user)
@@ -40,7 +40,6 @@ Authentication methods supported:
  * Norwegian BankID
  * Norwegian Mobile BankID
  * Finnish Trust Network
- * Finnish Tupas
  * Danish NemID
 
 ---
@@ -80,7 +79,7 @@ For other parameters see the specification:
 
 ### Authentication method details
 
-Authentication method | Code | SSN  |  UI Locale |  Default UI Locale |
+Authentication method | Code | SSN  |  UI locale |  Default UI locale |
 --------------------- | -----|------|------------------|---------|
 Swedish BankID | urn:collectorbank:ac:method:sbid | yyyyMMddNNNC | sv, en | sv |
 Swedish BankID Mobile | urn:collectorbank:ac:method:sbid | yyyyMMddNNNC | sv, en | sv |
@@ -92,16 +91,16 @@ Finnish Tupas | urn:collectorbank:ac:method:ftn | ddMMyyCzzzQ | fi, sv, en | fi 
 Danish NemID | urn:collectorbank:ac:method:nemid | ddMMyy-ssss | da, en | da |
 
  where d = day, M = month, y = year, C = century sign (+ or - or A), z = serial number, Q = control digit, s = sequence number
-### UI Locales and authentication methods
-The UI local used is based on the UI Locales specified in authentication request and the UI Locales that the authentication method supports.
+### UI locales and authentication methods
+The UI locale used is based on the UI locales specified in authentication request and the UI locales that the authentication method supports.
 
-If UI Locales is specified in the authentication request then the first local in the list that are supported by the authentication method will be used.
+If UI locales is specified in the authentication request then the first locale in the list that are supported by the authentication method will be used.
 
-If no UI Locales is supported, the end user will see a screen where they can choose the locale they want to use.
+If no UI locales is supported, the end user will see a screen where they can choose the locale they want to use.
 
-If UI Locales is not specified in the authentication, the default UI locales for the authentication request will be used.
+If UI locales is not specified in the authentication, the default UI locale for the authentication request will be used.
 
-Authentication method (acr value) | Supporeted UI Locales | Default UI Locales
+Authentication method (acr value) | Supporeted UI locales | Default UI locales
 
 ---
 
