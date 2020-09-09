@@ -85,7 +85,7 @@ Swedish BankID | urn:collectorbank:ac:method:sbid | yyyyMMddNNNC | sv, en | sv |
 Swedish BankID Mobile | urn:collectorbank:ac:method:sbid | yyyyMMddNNNC | sv, en | sv |
 Swedish BankID Mobile QR | urn:collectorbank:ac:method:sbid | yyyyMMddNNNC | sv, en | sv |
 Norwegian BankID | urn:collectorbank:ac:method:nbid | ddMMyyZZZQQ | nb, en | nb |
-Norwegian Mobile BankID | urn:collectorbank:ac:method:nbid-mobile | ddMMyyZZZQQ | nb, en | nb |
+Norwegian Mobile BankID | urn:collectorbank:ac:method:nbid-mobil | ddMMyyZZZQQ | nb, en | nb |
 Finnish Trust Network | urn:collectorbank:ac:method:ftn | ddMMyyCzzzQ | fi, sv, en | fi |
 Finnish Tupas | urn:collectorbank:ac:method:ftn | ddMMyyCzzzQ | fi, sv, en | fi |
 Danish NemID | urn:collectorbank:ac:method:nemid | ddMMyy-ssss | da, en | da |
