@@ -120,6 +120,9 @@ Redirect Uris that you can use are:
 
 You can also specify ui_locales, [Authentication method details](#authentication-method-details)
 
+### :warning: **IMPORTANT**
+Please note that you MUST validate that the id token contains the subject's national_id. It is not enough to assume that the id token is issued for the subject noted in the login_hint of the request.
+
 ### Test User
 
 For PROD you will need to have real account when authenticating.
