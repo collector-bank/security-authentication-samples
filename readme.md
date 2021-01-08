@@ -87,10 +87,14 @@ Swedish BankID Mobile QR | urn:collectorbank:ac:method:sbid | yyyyMMddNNNC | sv,
 Norwegian BankID | urn:collectorbank:ac:method:nbid | ddMMyyZZZQQ | nb, en | nb |
 Norwegian Mobile BankID | urn:collectorbank:ac:method:nbid-mobil | ddMMyyZZZQQ | nb, en | nb |
 Finnish Trust Network | urn:collectorbank:ac:method:ftn | ddMMyyCzzzQ | fi, sv, en | fi |
-Finnish Tupas | urn:collectorbank:ac:method:ftn | ddMMyyCzzzQ | fi, sv, en | fi |
 Danish NemID | urn:collectorbank:ac:method:nemid | ddMMyy-ssss | da, en | da |
 
  where d = day, M = month, y = year, C = century sign (+ or - or A), z = serial number, Q = control digit, s = sequence number
+
+Authentication method to use for authentication is selected by parameter **acr_values**.
+**acr_values** is a space-separated string that specifies the acr values that the Authorization Server is being requested to use for processing the Authentication Requested. The format is  urn:collectorbank:ac:method:method:<name-of-method>. 
+Multiple Authentication methods (for the same country) is allowed.
+
 ### UI locales and authentication methods
 The UI locale used is based on the UI locales specified in authentication request and the UI locales that the authentication method supports.
 
