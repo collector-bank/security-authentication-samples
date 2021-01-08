@@ -92,7 +92,9 @@ Danish NemID | urn:collectorbank:ac:method:nemid | ddMMyy-ssss | da, en | da |
  where d = day, M = month, y = year, C = century sign (+ or - or A), z = serial number, Q = control digit, s = sequence number
 
 Authentication method to use for authentication is selected by parameter **acr_values**.
+
 **acr_values** is a space-separated string that specifies the acr values that the Authorization Server is being requested to use for processing the Authentication Requested. The format is  urn:collectorbank:ac:method:method:<name-of-method>. 
+
 Multiple Authentication methods (for the same country) is allowed.
 
 ### UI locales and authentication methods
