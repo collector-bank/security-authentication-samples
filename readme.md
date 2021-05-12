@@ -81,7 +81,7 @@ For other parameters see the specification:
 
 Authentication method | Code | SSN  |  UI locale |  Default UI locale |
 --------------------- | -----|------|------------------|---------|
-Swedish BankID | urn:collectorbank:ac:method:sbid | yyyyMMddNNNC | sv, en | sv |
+Swedish BankID & Swedish BankID Mobile | urn:collectorbank:ac:method:sbid | yyyyMMddNNNC | sv, en | sv |
 Swedish BankID Mobile | urn:collectorbank:ac:method:sbid-mobil | yyyyMMddNNNC | sv, en | sv |
 Swedish BankID Mobile QR | urn:collectorbank:ac:method:sbid-qr | yyyyMMddNNNC | sv, en | sv |
 Norwegian BankID | urn:collectorbank:ac:method:nbid | ddMMyyZZZQQ | nb, en | nb |
