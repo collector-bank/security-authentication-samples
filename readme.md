@@ -40,8 +40,9 @@ Authentication methods supported:
  * Norwegian BankID
  * Norwegian Mobile BankID
  * Norwegian BankID HIGH
+ * Norwegian BankID Biometric
  * Finnish Trust Network
- * Danish NemID
+ * Danish MitID
 
 ---
 
@@ -82,14 +83,15 @@ For other parameters see the specification:
 
 Authentication method | Code | SSN  |  UI locale |  Default UI locale |
 --------------------- | -----|------|------------------|---------|
-Swedish BankID & Swedish BankID Mobile | urn:collectorbank:ac:method:sbid | yyyyMMddNNNC | sv, en | sv |
-Swedish BankID Mobile | urn:collectorbank:ac:method:sbid-mobil | yyyyMMddNNNC | sv, en | sv |
-Swedish BankID Mobile QR | urn:collectorbank:ac:method:sbid-qr | yyyyMMddNNNC | sv, en | sv |
+Swedish BankID & Swedish BankID Mobile | urn:collectorbank:ac:method:sbid<br />urn:collectorbank:ac:method:sbid-v4 | yyyyMMddNNNC | sv, en | sv |
+Swedish BankID Mobile | urn:collectorbank:ac:method:sbid-mobil<br />urn:collectorbank:ac:method:sbid-mobil-v4 | yyyyMMddNNNC | sv, en | sv |
+Swedish BankID Mobile QR | urn:collectorbank:ac:method:sbid-qr<br />urn:collectorbank:ac:method:sbid-qr-v4 | yyyyMMddNNNC | sv, en | sv |
 Norwegian BankID | urn:collectorbank:ac:method:nbid | ddMMyyZZZQQ | nb, en | nb |
 Norwegian Mobile BankID | urn:collectorbank:ac:method:nbid-mobil | ddMMyyZZZQQ | nb, en | nb |
-Norwegian BankID HIGH | urn:collectorbank:ac:method:nbid_idp:BID | ddMMyyZZZQQ | nb, en | nb |
+Norwegian BankID HIGH | urn:collectorbank:ac:method:nbid-high | ddMMyyZZZQQ | nb, en | nb |
+Norwegian BankID Biometric | urn:collectorbank:ac:method:nbid-biometric | ddMMyyZZZQQ | nb, en | nb |
 Finnish Trust Network | urn:collectorbank:ac:method:ftn | ddMMyyCzzzQ | fi, sv, en | fi |
-Danish NemID | urn:collectorbank:ac:method:nemid | ddMMyy-ssss | da, en | da |
+Danish MidID | urn:collectorbank:ac:method:mitid-cpr | ddMMyy-ssss | da, en | da |
 
  where d = day, M = month, y = year, C = century sign (+ or - or A), z = serial number, Q = control digit, s = sequence number
 
@@ -98,6 +100,8 @@ Authentication method to use for authentication is selected by parameter **acr_v
 **acr_values** is a space-separated string that specifies the acr values that the Authorization Server is being requested to use for processing the Authentication Requested. The format is  urn:collectorbank:ac:method:method:<name-of-method>. 
 
 Multiple Authentication methods (for the same country) is allowed.
+
+The *-v4 methods for Swedish BankID are methods that has the secure start behaviour, before it is enforced by the Swedish BankID backend service on 1 May 2024. For more info on this, see [Secure start will be mandatory from 1 May 2024](https://www.bankid.com/en/tekniska-uppdateringar/secure-start-will-be-mandatory-from-1-may-2024).
 
 ### UI locales and authentication methods
 The UI locale used is based on the UI locales specified in authentication request and the UI locales that the authentication method supports.
