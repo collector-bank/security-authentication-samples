@@ -1,6 +1,6 @@
 ﻿
 # OpenIDConnectWebClientCore
-OpenID Connect Implict flow sample using ASP.NET Core using .NETCore 1.1.0 framework.
+OpenID Connect Implict flow sample using ASP.NET Core using .NETCore 3.1.0 framework.
 
  1. [Nuget Packages](#nuget-packages)
  1. [Code needed](#code-needed)
