@@ -1,5 +1,5 @@
 
-# Collector Identity Provider (IdP)
+# Norion Identity Provider (IdP)
 
  1. [Overview](#overview)
  1. [Prerequisites](#prerequisites)
@@ -17,7 +17,7 @@
 ---
 
 ## Overview
-The Collector IdP supports OAuth OpenID Connect code flow.
+The Norion IdP supports OAuth OpenID Connect code flow.
 Details can be found at [connect2id](https://connect2id.com/learn/openid-connect).
 
 
@@ -35,10 +35,6 @@ The metadata address for each environments are located at
 Authentication methods supported:
 
  * Swedish BankID
- * Swedish Mobile BankID
- * Swedish Mobile BankID QR
- * Norwegian BankID
- * Norwegian Mobile BankID
  * Norwegian BankID HIGH
  * Norwegian BankID Biometric
  * Finnish Trust Network
@@ -47,7 +43,7 @@ Authentication methods supported:
 ---
 
 ## Prerequisites
-In order to use Collector IdP you need to preregister by contacting [Collector](mailto:merchant@collectorbank.se).
+In order to use Norion IdP you need to preregister by contacting [Norion](mailto:merchant@collectorbank.se).
 Provide information regarding
 * Authentication methods
 * Redirect URIs
@@ -67,7 +63,7 @@ When the client is setup, you are able to call the authorize endpoint using OAut
 ---
 
 ## Customization
-Collector IdP specific parameter values that can be set when making authentication request.
+Norion IdP specific parameter values that can be set when making authentication request.
 
 ### OAuth OpenID Connect code flow custom parameter values
 OAuth Parameter | Values | Description |
@@ -83,11 +79,7 @@ For other parameters see the specification:
 
 Authentication method | Code | SSN  |  UI locale |  Default UI locale |
 --------------------- | -----|------|------------------|---------|
-Swedish BankID & Swedish BankID Mobile | urn:collectorbank:ac:method:sbid<br />urn:collectorbank:ac:method:sbid-v4 | yyyyMMddNNNC | sv, en | sv |
-Swedish BankID Mobile | urn:collectorbank:ac:method:sbid-mobil<br />urn:collectorbank:ac:method:sbid-mobil-v4 | yyyyMMddNNNC | sv, en | sv |
-Swedish BankID Mobile QR | urn:collectorbank:ac:method:sbid-qr<br />urn:collectorbank:ac:method:sbid-qr-v4 | yyyyMMddNNNC | sv, en | sv |
-Norwegian BankID | urn:collectorbank:ac:method:nbid | ddMMyyZZZQQ | nb, en | nb |
-Norwegian Mobile BankID | urn:collectorbank:ac:method:nbid-mobil | ddMMyyZZZQQ | nb, en | nb |
+Swedish BankID | urn:collectorbank:ac:method:sbid | yyyyMMddNNNC | sv, en | sv |
 Norwegian BankID HIGH | urn:collectorbank:ac:method:nbid-high | ddMMyyZZZQQ | nb, en | nb |
 Norwegian BankID Biometric | urn:collectorbank:ac:method:nbid-biometric | ddMMyyZZZQQ | nb, en | nb |
 Finnish Trust Network | urn:collectorbank:ac:method:ftn | ddMMyyCzzzQ | fi, sv, en | fi |
@@ -98,10 +90,6 @@ Danish MidID | urn:collectorbank:ac:method:mitid-cpr | ddMMyy-ssss | da, en | da
 Authentication method to use for authentication is selected by parameter **acr_values**.
 
 **acr_values** is a space-separated string that specifies the acr values that the Authorization Server is being requested to use for processing the Authentication Requested. The format is  urn:collectorbank:ac:method:method:<name-of-method>. 
-
-Multiple Authentication methods (for the same country) is allowed.
-
-The *-v4 methods for Swedish BankID are methods that has the secure start behaviour, before it is enforced by the Swedish BankID backend service on 1 May 2024. For more info on this, see [Secure start will be mandatory from 1 May 2024](https://www.bankid.com/en/tekniska-uppdateringar/secure-start-will-be-mandatory-from-1-may-2024).
 
 ### UI locales and authentication methods
 The UI locale used is based on the UI locales specified in authentication request and the UI locales that the authentication method supports.
@@ -153,6 +141,5 @@ For Test and UAT you need to have test user when authenticating.
 All samples are written in C# using ASP.NET.
 
 Sample | Protocol | Description
------- | -------  | -----------
 ------ | -------  | -----------
 OpenIDConnectWebClientCore | OpenID Connect code flow | ASP.NET Core using .NETCore 2.2 framework
